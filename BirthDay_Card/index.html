@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Payel!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Audio Elements -->
+    <audio id="backgroundMusic" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voiceNote">
+        <source src="assets/voice-note.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Loading Screen -->
+        <div class="loading-screen" id="loadingScreen">
+            <div class="spinner"></div>
+            <p>Loading special birthday wishes...</p>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <h1>Happy Birthday Payel! 🎂</h1>
+            <button class="start-btn" id="startBtn">Open Your Card 💖</button>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card" id="mainCard">
+            <!-- Header with personalized greeting -->
+            <header class="card-header">
+                <h1 class="typewriter" id="greeting">Happy Birthday, Payel! ❤</h1>
+                <div class="audio-controls">
+                    <button id="musicToggle"><i class="fas fa-music"></i></button>
+                    <button id="voiceNoteBtn"><i class="fas fa-microphone"></i></button>
+                </div>
+            </header>
+
+            <!-- Photo Slideshow -->
+            <section class="slideshow-container">
+                <div class="slideshow">
+                    <div class="slide active">
+                        <img src="assets/photos/p1.jpg" alt="Special memory 1">
+                        <p class="caption">Our beautiful moments together 💕</p>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/photos/p2.jpg" alt="Special memory 2">
+                        <p class="caption">You make every day special 🌸</p>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/photos/p3.jpg" alt="Special memory 3">
+                        <p class="caption">Your smile lights up my world ✨</p>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/photos/p4.jpg" alt="Special memory 4">
+                        <p class="caption">My favorite person 🥰</p>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/photos/p5.jpg" alt="Special memory 5">
+                        <p class="caption">Adventures together 🌈</p>
+                    </div>
+                    <!-- Additional slides would go here -->
+                </div>
+                <button class="slide-nav prev" onclick="changeSlide(-1)">❮</button>
+                <button class="slide-nav next" onclick="changeSlide(1)">❯</button>
+                <div class="slide-dots"></div>
+            </section>
+
+            <!-- Interactive Heart -->
+            <section class="interactive-section">
+                <h2>Click the heart to see your surprise 💖</h2>
+                <div class="heart-container">
+                    <div class="heart" id="heartButton">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="surprise-message" id="surpriseMessage">
+                    <p>You are the most amazing person I've ever met! I love you! 😍</p>
+                    <img src="assets/photos/p9.jpg" alt="Special surprise" class="surprise-image">
+                </div>
+            </section>
+
+            <!-- Love Letter -->
+            <section class="love-letter">
+                <h2>My Dearest Payel,</h2>
+                <div class="letter-content">
+                    <p class="typewriter-text">এই বিশেষ দিনে, আমি তোমাকে বলতে চাই যে তোমাকে আমার জীবনে পেয়ে আমি কতটা ভাগ্যবান। তোমার হাসি আমার অন্ধকার দিনগুলিকে উজ্জ্বল করে, তোমার হাসি আমার প্রিয় সুর, এবং তোমার ভালোবাসা আমার পাওয়া সবচেয়ে বড় উপহার।.</p>
+                    <p class="typewriter-text">তোমার সাথে প্রতিটি মুহূর্ত আমার কাছে গভীরভাবে লালিত এক সম্পদ। তোমার সাথে আরও অনেক সুন্দর স্মৃতি তৈরি করার জন্য আমি অধীর আগ্রহে অপেক্ষা করছি। পৃথিবীর সবচেয়ে সুন্দর বান্ধবীকে জন্মদিনের শুভেচ্ছা!🎂💖</p>
+                    <p class="signature">With all my love,<br>Subhajit Ghosh</p>
+                </div>
+            </section>
+
+            <!-- Countdown Timer -->
+            <section class="countdown-section">
+                <h2>Countdown to Your Special Day!</h2>
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <span id="days">00</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="minutes">00</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="seconds">00</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mini Game -->
+            <section class="game-section">
+                <h2>Pop the Balloons for a Special Message! 🎈</h2>
+                <div class="balloon-container" id="balloonContainer"></div>
+                <div class="game-message" id="gameMessage"></div>
+            </section>
+
+            <!-- Final Fireworks -->
+            <section class="final-section">
+                <button class="fireworks-btn" id="fireworksBtn">Open Your Final Gift 🎁</button>
+                <div class="fireworks-container" id="fireworksContainer">
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="final-message">
+                        <h2>I'm incredibly lucky to have you in my life!</h2>
+                        <p>Happy Birthday, my beautiful Payel! May your day be as wonderful as you are! 💖</p><br>
+                        <p>I LOVE YOU 💚</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-hearts"></div>
+    <div class="floating-balloons"></div>
+    <div class="floating-petals"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
